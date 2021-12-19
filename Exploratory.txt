@@ -1,0 +1,55 @@
+sample=read.csv("SampleSuperstore.csv")
+u=unique(sample$Ship.Mode)
+c=0;p=0;s=0
+for(i in 1:4){
+  c=subset(sample,sample$Ship.Mode==u[i])
+  p[i]=sum(c[13])
+  s[i]=sum(c[10])
+}
+h=factor(u)
+par(mfrow=c(1,2))
+plot(h,s,type="h",xlab="Ship Mode",ylab="Sales",main="Ship Mode vs Sales")
+plot(h,p,type="h",xlab="Ship Mode",ylab="Profit",main="Ship Mode vs Profit")
+par(mfrow=c(1,1))
+plot(p,s,"l",xlab="Profit",ylab="Sales",main="Profit vs Sales",lwd=2)
+
+u1=unique(sample$Segment)
+h1=as.factor(u1)
+c=0;p=0;s=0
+for(i in 1:3){
+  c=subset(sample,sample$Segment==u1[i])
+  p[i]=sum(c[13])
+  s[i]=sum(c[10])
+}
+par(mfrow=c(1,2))
+plot(h1,s,type="h",xlab="Segment",ylab="Sales",main="Segment vs Sales")
+plot(h1,p,type="h",xlab="Segment",ylab="Profit",main="Segment vs Profit")
+
+
+u2=unique(sample$Region)
+h2=as.factor(u2)
+c=0;p=0;s=0
+for(i in 1:4){
+  c=subset(sample,sample$Region==u2[i])
+  p[i]=sum(c[13])
+  s[i]=sum(c[10])
+}
+par(mfrow=c(1,2))
+plot(h2,s,type="h",xlab="Region",ylab="Sales",main="Region vs Sales")
+plot(h2,p,type="h",xlab="Region",ylab="Profit",main="Region vs Profit")
+
+
+
+u3=unique(sample$Category)
+h3=as.factor(u3)
+c=0;p=0;s=0
+for(i in 1:3){
+  c=subset(sample,sample$Category==u3[i])
+  p[i]=sum(c[13])
+  s[i]=sum(c[10])
+}
+par(mfrow=c(1,2))
+plot(h3,s,type="h",xlab="Category",ylab="Sales",main="Category vs Sales")
+plot(h3,p,type="h",xlab="Category",ylab="Profit",main="Category vs Profit")
+
+
